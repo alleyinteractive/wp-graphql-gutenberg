@@ -93,7 +93,7 @@ class Settings extends Component {
 									action: actions.GET_BLOCK_REGISTRY,
 									onComplete: ( result ) => {
 										apiFetch( {
-											url: `${adminUrl}/wp-json/wp-graphql-gutenberg/v1/block-registry`,
+											url: `${ adminUrl }/wp-json/wp-graphql-gutenberg/v1/block-registry`,
 											method: 'POST',
 											data: {
 												block_types: result,
