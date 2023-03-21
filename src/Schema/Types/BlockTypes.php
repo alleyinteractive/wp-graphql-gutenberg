@@ -83,6 +83,9 @@ class BlockTypes {
 			if ( isset( $default_value ) ) {
 				$type = [ 'non_null' => $type ];
 			}
+		} elseif ( 'templateLock' === $name ) {
+			// TODO: this can be an string or a boolean. Setting to string to avoid getting a flood of errors in debug log.
+			$type = 'String';
 		} elseif ( WP_DEBUG ) {
 			// phpcs:ignore
 			trigger_error( sprintf( __( 'Could not determine type of attribute "%1$s" in "%2$s"', 'wp-graphql-gutenberg' ), esc_html( $name ), esc_html( $prefix ) ), E_USER_WARNING );
