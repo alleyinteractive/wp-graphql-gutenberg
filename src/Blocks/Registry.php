@@ -21,6 +21,9 @@ class Registry {
 	}
 
 	public static function update_registry( $registry ) {
+		// Merge the new registry with the old registry. This will ensure that we don't remove any blocks that were
+		// available in another context (e.g. another post type) but not this one.
+		$old_values = get_option( WP_GRAPHQL_GUTENBERG_REGISTRY_OPTION_NAME ) ?? [];
 		return update_option( WP_GRAPHQL_GUTENBERG_REGISTRY_OPTION_NAME, $registry, false );
 	}
 
