@@ -39,7 +39,6 @@ class BlockTypes {
 
 	protected static function get_attribute_type( $name, $attribute, $prefix ) {
 		$type = null;
-
 		if ( isset( $attribute['type'] ) ) {
 			switch ( $attribute['type'] ) {
 				case 'string':
@@ -76,6 +75,8 @@ class BlockTypes {
 			}
 		} elseif ( isset( $attribute['source'] ) ) {
 			$type = 'String';
+		} elseif ( isset( $attribute['enum'] ) ) {
+			$type = array_unique( array_map( 'gettype', $attribute['enum'] ) );
 		}
 
 		if ( null !== $type ) {
