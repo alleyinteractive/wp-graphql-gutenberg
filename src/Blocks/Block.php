@@ -213,7 +213,7 @@ class Block implements ArrayAccess {
 
 		$this->name            = $data['blockName'];
 		$this->postId          = $post_id;
-		$this->blockType       = $registry[ $this->name ] ?? null;
+		$this->blockType       = $registry[ $this->name ];
 		$this->originalContent = self::strip_newlines( $data['innerHTML'] );
 		$this->saveContent     = self::parse_inner_content( $data );
 		$this->order           = $order;
