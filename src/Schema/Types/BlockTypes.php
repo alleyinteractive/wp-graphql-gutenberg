@@ -75,8 +75,6 @@ class BlockTypes {
 			}
 		} elseif ( isset( $attribute['source'] ) ) {
 			$type = 'String';
-		} elseif ( isset( $attribute['enum'] ) ) {
-			$type = array_unique( array_map( 'gettype', $attribute['enum'] ) );
 		}
 
 		if ( null !== $type ) {
